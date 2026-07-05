@@ -5,7 +5,7 @@ from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Driver, Car, Manufacturer
-from .forms import CarForm, ManufacturerForm
+
 
 @login_required
 def index(request):
@@ -50,6 +50,7 @@ class CarCreateView(LoginRequiredMixin, generic.CreateView):
     fields = "__all__"
     success_url = reverse_lazy("taxi:car-list")
     template_name = "taxi/car_form.html"
+
 
 class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Car
